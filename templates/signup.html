@@ -1,0 +1,29 @@
+
+<h2>Sign Up</h2>
+<form method="post">
+    {% csrf_token %}
+
+    {{ form.non_field_errors }}
+    <p> <label>{{ form.first_name.label_tag }}</label>{{ form.first_name }}</p>
+    <p> <label>{{ form.last_name.label_tag }}</label>{{ form.last_name }}</p>
+    <p> <label>{{ form.username.label_tag }}</label>{{ form.username }}</p>
+    <p> <label>{{ form.email.label_tag }}</label>{{ form.email }}</p>
+    <p> <label>{{ form.phone.label_tag }}</label>{{ form.phone }}</p>
+    <p> <label>{{ form.gender.label_tag }}</label>{{ form.gender }}</p>
+    <p> <label>{{ form.age.label_tag }}</label>{{ form.age }}</p>
+    <p> <label>{{ form.password1.label_tag }}</label>{{ form.password1 }}</p>
+    <p>Password can't be similar to your other fields and must contain atleast 8 characters.</p>
+    <p> <label>{{ form.password2.label_tag }}</label>{{ form.password2 }}</p>
+    <input type="submit" name="" value="Sign Up">
+
+</form>
+
+<div>
+    {% if form.errors.username %}
+    {{ form.errors.username }}
+    {% endif %}
+
+    {% if form.errors.password2 %}
+    {{ form.errors.password2 }}
+    {% endif %}
+</div>

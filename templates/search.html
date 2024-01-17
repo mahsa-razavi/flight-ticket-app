@@ -1,0 +1,36 @@
+<h1>Search Flights</h1>
+<div>
+    <form action="search" method="GET">
+        <label>Source</label>
+        <input type="text" name="source">
+        <br><br>
+        <label>Destination</label>
+        <input type="text" name="destination">
+        <br><br>
+        <label>Date</label>
+        <input type="date" name="date">
+        <br><br>
+        <input type="submit" value="Search">
+    </form>
+            
+    <div>
+        {% if flights %}
+        <ul>
+            {% for flight in flights %}
+            <p>
+                <li>Flight Number - {{ flight.flight_number }}</li>
+                <li>Source - {{ flight.departure_airport }}</li>
+                <li>Destination - {{ flight.arrival_airport }}</li>
+                <li>Departure Time - {{ flight.arrival_time }}</li>
+                <li>Arrival Time - {{ flight.departure_time }}</li>
+                <li>Price - {{ flight.price }}</li>
+                <li><a href="{% url 'book_flight' flight_id=flight.pk %}">Book My Flight</a></li>
+                <hr>
+            </p>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No flights found matching your search criteria</p>
+        {% endif %}
+    </div>
+</div>

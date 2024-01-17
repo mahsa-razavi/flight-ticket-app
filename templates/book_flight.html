@@ -1,0 +1,22 @@
+<h1>Ticket Booking</h1>
+<div>
+    <ul>
+        <li>Flight Number - {{ flight.flight_number }}</li>
+        <li>Source - {{ flight.departure_airport }}</li>
+        <li>Destination - {{ flight.arrival_airport }}</li>
+        <li>Departure Time - {{ flight.arrival_time }}</li>
+        <li>Arrival Time - {{ flight.departure_time }}</li>
+        <li>Price - {{ flight.price }}</li>
+    </ul>
+</div>
+<div>  
+    <form method="post">
+        {% csrf_token %}
+        
+        <p> <label>{{ form.passenger_name.label_tag }}</label>{{ form.passenger_name }}</p>
+        <p> <label>{{ form.passenger_email.label_tag }}</label>{{ form.passenger_email }}</p>
+        <p> <label>{{ form.passenger_phone.label_tag }}</label>{{ form.passenger_phone }}</p>
+        <p> <label>{{ form.passenger_age.label_tag }}</label>{{ form.passenger_age }}</p>
+        <input type="submit" name="" value="Confirm Ticket">
+     </form>   
+</div>

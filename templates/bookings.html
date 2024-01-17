@@ -1,0 +1,19 @@
+<h1>My Bookings</h1>
+
+<div>
+    {% if bookings %}
+    <ul>
+        {% for booking in bookings %}
+        <li>Flight: {{ booking.flight.number }} - {{ booking.flight.departure_airport }} to {{ booking.flight.arrival_airport }}</li>
+        <li>Passenger Name: {{ booking.passenger_name }}</li>
+        <li>Passenger Email: {{ booking.passenger_email }}</li>
+        <li>Date : {{ booking.flight.departure_date}}</li>
+        <li>Time : {{ booking.flight.departure_time}}</li>
+        <li>Price : {{ booking.flight.price}}</li>
+        <hr>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No bookings found</p>
+    {% endif %}
+</div>
